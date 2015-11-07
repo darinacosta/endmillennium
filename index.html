@@ -24,10 +24,14 @@
   html{
     /*background-image: url('http://play.geographyofrobots.com/endmillennium/images/bluegrid.png');*/
     background-image:url(images/bluegrid.png);
-    background-size:cover;
     background-color:black;
     color: #AD3E3E !important;
+    text-shadow: -2px 2px rgba(0, 0, 0, 0.63);
     text-align:center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   .choice{
@@ -66,8 +70,8 @@
   tw-passage{
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
-    box-shadow: 10px 7px 15px black;
-
+    box-shadow: 12px 16px 35px black;
+    border: 5px ridge rgba(59, 59, 59, 0.76);
   }
 
   tw-passage:hover{
@@ -90,80 +94,95 @@
     color:#41E1D4;
   }
 
-  @media screen and (max-width: 650px) /* Mobile */ {
+  html.static tw-passage{
+    color: rgba(173, 62, 62, 0);
+    font-size:30px;
+  }  
+
+  html.static tw-link{
+    color: rgba(173, 62, 62, 0);
+    animation: none;
+    -webkit-animation: none;
+  }  
+
+  html.static tw-passage:hover{
+    background-image:url(images/static.gif);
+    color: white;
+  }  
+
+  html.static tw-passage:hover tw-link{
+    color: #00FFFF;
+    text-shadow: 5px 7px rgba(44, 78, 86, 0.63);
+  }  
+
+  html.earlyeve{
+    background-size:cover;
+    background-image:url(images/earlyeve.png),url(images/bluegrid.png);
+    min-height: 100%;
+  }  
+
+  html.angeladriving tw-passage{
+    background-size:cover;
+    background-image:url(images/angeladriving.png);
+  }  
+
+  html.lateeve{
+    background-size:cover;
+    background-image:url(images/earlyeve.png),url(images/bluegrid.png);
+  }  
+
+  html.gasstation{
+    background-size:cover;
+    background-image:url(images/gasstation.png),url(images/bluegrid.png);
+  }  
+
+  html.highwaynight{
+    background-size:cover;
+    background-image:url(images/highwaynight.png),url(images/bluegrid.png);
+  }  
+
+  html.moonlight{
+    background-size:cover;
+    background-image:url(images/moonlight.png),url(images/bluegrid.png);
+  }  
+
+  html.walmart{
+    background-size:cover;
+    background-image:url(images/abandonedmall.png),url(images/bluegrid.png);
+  }
+
+    @media screen and (max-width: 650px) /* Mobile */ {
     h1{
       font-size:25px;
     }
 
     tw-story{
-      width:100%;
+      width:90%;
+      padding:5px;
+      font-size:20px;
     }
   }
-
-html.intro tw-passage{
-  color: rgba(173, 62, 62, 0);
-  font-size:30px;
-}
-
-html.intro tw-link{
-  color: rgba(173, 62, 62, 0);
-  animation: none;
-  -webkit-animation: none;
-}
-
-html.intro tw-passage:hover{
-  background-image:url(images/static.gif);
-  color: white;
-}
-
-html.intro tw-passage:hover tw-link{
-  color: #E68585;
-
-}
-
-html.earlyeve{
-  background-size:cover;
-  background-image:url(images/earlyeve.png),url(images/bluegrid.png);
-}
-
-html.lateeve{
-  background-size:cover;
-  background-image:url(images/earlyeve.png),url(images/bluegrid.png);
-}
-
-html.gasstation{
-  background-size:cover;
-  background-image:url(images/gasstation.png),url(images/bluegrid.png);
-}
-
-html.highwaynight{
-  background-size:cover;
-  background-image:url(images/highwaynight.png),url(images/bluegrid.png);
-}
-
-html.moonlight{
-  background-size:cover;
-  background-image:url(images/moonlight.png),url(images/bluegrid.png);
-}
-
-html.walmart{
-  background-size:cover;
-  background-image:url(images/abandonedmall.png),url(images/bluegrid.png);
-}
-
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
 
 
 
 
-</script><tw-passagedata pid="1" name="In the car" tags="earlyeve intro" position="536,376">&lt;h1&gt;End Millennium&lt;/h1&gt;
+</script><tw-passagedata pid="1" name="In the car" tags="earlyeve static" position="536,376">&lt;h1&gt;End Millennium&lt;/h1&gt;
 You dream of a hole, 
 and inside the hole 
 is the [[highway|The highway]]. 
-</tw-passagedata><tw-passagedata pid="2" name="Staring out at Mississippi" tags="lateeve" position="541,645">You look out past the verge at the little signs of devastation. Tilted trees, mainly. Tilted power lines. Storm debris is scattered among the pines. From a rise in the highway you see the winking lights of cell towers shining like coded information along the great depth of the evening savanna, all of it shadow-hung like the stuff that sits beneath a campfire. You look over to your [[sister|Angela drives]], and then glance back at [[Shep|Shep sits upright]]. You have to [[pee|I have to pee]].</tw-passagedata><tw-passagedata pid="3" name="Angela drives" tags="lateeve" position="722,645">Angela has no expression of any kind 
+</tw-passagedata><tw-passagedata pid="2" name="Staring out at Mississippi" tags="lateeve" position="541,645">You look out past the verge at the little signs of devastation. Tilted trees, mainly. Tilted power lines. Storm debris is scattered among the pines. From a rise in the highway you see the winking lights of cell towers shining like coded information along the great depth of the evening savanna, all of it shadow-hung like the stuff that sits beneath a campfire. You look over to your [[sister|Angela drives]], and then glance back at [[Shep|Shep sits upright]]. You have to [[pee|I have to pee]].</tw-passagedata><tw-passagedata pid="3" name="Angela drives" tags="lateeve angeladriving" position="722,645">
+
+
+
+Angela has no expression of any kind 
 as she drives along 
-[[Interstate 10|Staring out at Mississippi]].</tw-passagedata><tw-passagedata pid="4" name="Shep sits upright" tags="lateeve" position="541,795">You assume that Shep is sleeping, but he’s awake, upright, just staring out at the [[road|Staring out at Mississippi]]. You met him on Craigslist, sending out emails from your phone while rain flattened the dust of a midday Floridian parking lot. He was the first to respond, and he responded almost instantly. </tw-passagedata><tw-passagedata pid="5" name="I have to pee" tags="lateeve" position="416,795">“I have to [[pee|Really have to pee]],” you announce, still watching the [[highway|Staring out at Mississippi]].</tw-passagedata><tw-passagedata pid="6" name="Really have to pee" tags="lateeve" position="416,920">You&#x27;ve been holding it in for over an hour. 
+[[Interstate 10|Staring out at Mississippi]].
+
+
+
+</tw-passagedata><tw-passagedata pid="4" name="Shep sits upright" tags="lateeve" position="541,795">You assume that Shep is sleeping, but he’s awake, upright, just staring out at the [[road|Staring out at Mississippi]]. You met him on Craigslist, sending out emails from your phone while rain flattened the dust of a midday Floridian parking lot. He was the first to respond, and he responded almost instantly. </tw-passagedata><tw-passagedata pid="5" name="I have to pee" tags="lateeve" position="416,795">“I have to [[pee|Really have to pee]],” you announce, still watching the [[highway|Staring out at Mississippi]].</tw-passagedata><tw-passagedata pid="6" name="Really have to pee" tags="lateeve" position="416,920">You&#x27;ve been holding it in for over an hour. 
 Angela passes an exit. 
 [[Wtf|Next exit]].</tw-passagedata><tw-passagedata pid="7" name="Next exit" tags="lateeve" position="555,923">&quot;Hey, next exit, [[pull off|Angela pulls off]]. This is getting kinda serious.&quot;</tw-passagedata><tw-passagedata pid="8" name="Angela pulls off" tags="gasstation" position="698,921">The next exit finally arrives. Angela slides the truck down the ramp, onto the service lane and out down the street toward the gas station. The street&#x27;s empty of traffic and the gas station&#x27;s closed, the windows boarded up. Laminated notices hang on the plywood and the pumps. Angela pulls along the edge of the place and parks. You go around back and piss near a pile of crates and then [[return to the truck|Return to the truck]]. </tw-passagedata><tw-passagedata pid="9" name="Return to the truck" tags="gasstation" position="700,1046">Shep&#x27;s resting on his haunches smoking a cigarette. He&#x27;s staring hard across the road, [[considering something|Shep&#x27;s incoherent thoughts]]. He doesn&#x27;t move at all except to pass the cigarette to and from his mouth. Your sister lowers the tailgate to his truck and sits down.</tw-passagedata><tw-passagedata pid="10" name="Shep&#x27;s incoherent thoughts" tags="gasstation" position="565,1053">Angela asks Shep if he wants her to keep driving. He mutters something in a friendly enough way, but you have no idea what he said. You and your sister exchange a quick look. Shep [[laughs|Shep laughs on his haunches]].</tw-passagedata><tw-passagedata pid="11" name="Header" tags="header" position="1165,1323">{
 (print: &quot;&lt;script&gt;$(&#x27;html&#x27;).removeClass(\)&lt;/script&gt;&quot;)
