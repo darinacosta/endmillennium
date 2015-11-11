@@ -13,10 +13,16 @@
     $(document).ready(function(){
       var crackle = document.getElementById("crackle");
       var end = document.getElementById("end");
+      var endPlayed = false;
       console.log('TEST')
       $("html").on('click', function(event){
         if ($(event.target).hasClass('replay')){
           location.reload();
+        }
+
+        if ($(event.target).is('tw-link') && !endPlayed){
+          endPlayed = true;
+          end.play()
         }
       })
       crackle.volume = 0.1;
@@ -47,7 +53,7 @@
   <source src="audio/crackle.ogg"></source>
   <source src="audio/crackle.mp3"></source>
 </audio>
-<audio id="crackle" loop>
+<audio id="end">
   <source src="audio/end.ogg"></source>
   <source src="audio/end.mp3"></source>
 </audio>
