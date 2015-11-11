@@ -14,7 +14,8 @@
       var crackle = document.getElementById("crackle");
       var end = document.getElementById("end");
       var endPlayed = false;
-      console.log('TEST')
+      crackle.volume = 0.1;
+      end.volume = 0.2;
       $("html").on('click', function(event){
         if ($(event.target).hasClass('replay')){
           location.reload();
@@ -25,7 +26,6 @@
           end.play()
         }
       })
-      crackle.volume = 0.1;
       $("html").on("mouseover", "div", function() {
         crackle.play();
         $("html").on('click', function(){
