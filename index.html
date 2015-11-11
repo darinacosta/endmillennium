@@ -10,13 +10,31 @@
   <link rel="stylesheet" href="fonts/editundolinebrk/stylesheet.css" type="text/css" charset="utf-8"> 
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script>
-    $("html").on('click', function(event){
-      if ($(event.target).hasClass('replay')){
-        location.reload();
-      }
+    $(document).ready(function(){
+      var crackle = document.getElementById("crackle");
+      var end = document.getElementById("end");
+      console.log('TEST')
+      $("html").on('click', function(event){
+        if ($(event.target).hasClass('replay')){
+          location.reload();
+        }
+      })
+      crackle.volume = 0.03;
+      $("html").on("mouseover", "div", function() {
+        crackle.play();
+        $("html").on('click', function(){
+          setTimeout(function(){
+            if ($('div:hover').length == 0) {
+              crackle.pause();
+            }
+          }, 200);
+        })
+      });
+      $("html").on("mouseout", "div", function() {
+        crackle.pause();
+      });
     })
   </script>
-
 
 </head>
 
@@ -25,6 +43,16 @@
   <source src="audio/gulfnight.ogg" type="audio/ogg">
   <source src="audio/gulfn.mp3" type="audio/mpeg">
 </audio>
+<audio id="crackle" loop>
+  <source src="audio/crackle.ogg"></source>
+  <source src="audio/crackle.mp3"></source>
+</audio>
+<audio id="crackle" loop>
+  <source src="audio/end.ogg"></source>
+  <source src="audio/end.mp3"></source>
+</audio>
+
+
 <tw-story></tw-story>
 
 <tw-storydata name="End Millenium" startnode="1" creator="Twine" creator-version="2.0.8" ifid="75F871EE-B681-4CA7-885D-054332AA4796" format="Harlowe" options=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
