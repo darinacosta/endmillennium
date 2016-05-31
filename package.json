@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/darinacosta/endmillennium/issues"
   },
-  "homepage": "https://github.com/darinacosta/endmillennium"
+  "homepage": "https://github.com/darinacosta/endmillennium",
+  "devDependencies": {
+    "requirejs": "^2.2.0"
+  }
 }
