@@ -37,20 +37,77 @@ function audioCtrl(audioSvc){
     }
   }
 
+  function _returnBackgroundTheme(){
+    for (var track in tracks) {
+      if (tracks.hasOwnProperty(track)) {
+        if (tracks[track]['background']){
+          return tracks[track].name;
+        }
+      }
+    }
+  }
+
+  function _returnBackgroundTheme(){
+    for (var track in tracks) {
+      if (tracks.hasOwnProperty(track)) {
+        if (tracks[track]['background']){
+          return tracks[track].name;
+        }
+      }
+    }
+  }
+
+  function _returnClickTracks(){
+    var clickTracks = [];
+    for (var track in tracks) {
+      if (tracks.hasOwnProperty(track)) {
+        console.log(tracks[track].name.substring(0, 4));
+        if (tracks[track].name.substring(0, 5) == "click"){
+          clickTracks.push(tracks[track].name);
+        }
+      }
+    }
+    return clickTracks;
+  }
+
   function _applyAudioHtmlTriggers(){
     $(document).ready(function(){
 
-      tracks.gulfnight.audio.play();
+      //Play background theme
+      var background = _returnBackgroundTheme();
+      tracks[background].audio.play();
 
-      //Play intro
+
       $("html").on('click', function(event){
+
+        //Replay from demo screen
         if ($(event.target).hasClass('replay')){
           location.reload();
         }
+
+        //Play click
+        if ($(event.target).is('tw-link:not(.visited)') && tracks.intro.played === 1){
+          var clickTracks = _returnClickTracks();
+          var i = Math.floor(Math.random() * clickTracks.length);
+          var clickTrack = clickTracks[i];
+          tracks[clickTrack].audio.play();
+        }
+
+        //Play unclick
+        if ($(event.target).is('.visited')){
+          tracks.unclick1.audio.play();
+        }
+
+        if ($(event.target).is('.undo')){
+          tracks.unclick1.audio.play();
+        }
+
+        //Play intro
         if ($(event.target).is('tw-link') && tracks.intro.played < 1){
           tracks.intro.played += 1;
           tracks.intro.audio.play();
         }
+
       });
 
       //Play crackle
