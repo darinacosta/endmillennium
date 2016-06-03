@@ -1,6 +1,10 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+  var watchTasks = ['concat', 'cssmin', 'string-replace:default',
+                   'string-replace:dev', 'inline', 'requirejs'];
+  var distTasks = watchTasks.concat(['watch']);
+
   // Project configuration.
   grunt.initConfig({
     // Metadata.
@@ -16,7 +20,7 @@ module.exports = function(grunt) {
                 tag: '__inline',
                 cssmin: true
             },
-            src: 'scratch/twine-output-replace.html',
+            src: 'twine/twine-output-replace.html',
             dest:'index.html'
         }
     },
@@ -35,7 +39,7 @@ module.exports = function(grunt) {
     'string-replace': {
       default: {
         files: {
-          'scratch/twine-output-replace.html': 'scratch/twine-output.html',
+          'twine/twine-output-replace.html': 'twine/twine-output.html',
         },
         options: {
           replacements: [
@@ -52,7 +56,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'scratch/twine-output-replace.html': 'scratch/twine-output-replace.html',
+          'twine/twine-output-replace.html': 'twine/twine-output-replace.html',
         },
         options: {
           replacements: [
@@ -65,7 +69,7 @@ module.exports = function(grunt) {
       },
       dev: {
         files: {
-          'scratch/twine-output-replace.html': 'scratch/twine-output-replace.html',
+          'twine/twine-output-replace.html': 'twine/twine-output-replace.html',
         },
         options: {
           replacements: [
@@ -90,6 +94,15 @@ module.exports = function(grunt) {
           mainConfigFile: 'main.js'      }
       }
     },
+    watch: {
+      scripts: {
+        files: ['**/*.js', '**/*.css'],
+        tasks: watchTasks,
+        options: {
+          spawn: false,
+        },
+      },
+    },
   });
 
   // These plugins provide necessary tasks.
@@ -98,9 +111,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-string-replace');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['concat', 'cssmin', 'string-replace:default', 'string-replace:dev', 'inline', 'requirejs']);
+  grunt.registerTask('default', distTasks);
   grunt.registerTask('dist', ['concat', 'cssmin', 'string-replace:default', 'string-replace:dist', 'inline', 'requirejs']);
 
 };
