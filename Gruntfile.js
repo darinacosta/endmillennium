@@ -3,7 +3,10 @@ module.exports = function(grunt) {
 
   var watchTasks = ['concat', 'cssmin', 'string-replace:default',
                    'string-replace:dev', 'inline', 'requirejs'];
-  var distTasks = watchTasks.concat(['watch']);
+  var buildTasks = watchTasks.concat(['watch']);
+  var distTasks = ['concat', 'cssmin', 'string-replace:default',
+                   'string-replace:build', 'inline', 'requirejs',
+                   'clean', 'copy'];
 
   // Project configuration.
   grunt.initConfig({
@@ -15,7 +18,7 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     inline: {
-        dist: {
+        build: {
             options:{
                 tag: '__inline',
                 cssmin: true
@@ -24,16 +27,17 @@ module.exports = function(grunt) {
             dest:'index.html'
         }
     },
+    clean: ['dist'],
     concat: {
       css: {
         src: ['assets/**/*.css'],
-        dest: 'dist/built.css',
+        dest: 'build/built.css',
       }
     },
     cssmin: {
       css: {
         src: ['assets/**/*.css'],
-        dest: 'dist/built.min.css'
+        dest: 'build/built.min.css'
       }
     },
     'string-replace': {
@@ -45,7 +49,7 @@ module.exports = function(grunt) {
           replacements: [
             {
               pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">\n\n</style>',
-              replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../dist/built.min.css"/></style>'
+              replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../build/built.min.css"/></style>'
             },
             {
               pattern: '<body>',
@@ -54,7 +58,7 @@ module.exports = function(grunt) {
           ]
         }
       },
-      dist: {
+      build: {
         files: {
           'twine/twine-output-replace.html': 'twine/twine-output-replace.html',
         },
@@ -62,7 +66,7 @@ module.exports = function(grunt) {
           replacements: [
             {
               pattern: '</body>',
-              replacement: '<script data-main="dist/init-built" src="require.js"></script></body>'
+              replacement: '<script data-main="build/init-built" src="require.js"></script></body>'
             }
           ]
         }
@@ -75,7 +79,7 @@ module.exports = function(grunt) {
           replacements: [
             {
               pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">\n\n</style>',
-              replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../dist/built.min.css"/></style>'
+              replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../build/built.min.css"/></style>'
             },
             {
               pattern: '</body>',
@@ -85,12 +89,23 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      main: {
+        files: [
+          {expand: true, src: ['assets/audio/*', 'assets/fonts/**/*',
+                               'assets/images/*', 'assets/textures/*',
+                               'index.html', 'build/built.min.css',
+                               'build/init-built.js', 'require.js'],
+           dest: 'dist', filter: 'isFile'},
+        ],
+      },
+    },
     requirejs: {
       compile: {
         options: {
           baseUrl: ".",
           name: "init",
-          out: "dist/init-built.js",
+          out: "build/init-built.js",
           mainConfigFile: 'main.js'      }
       }
     },
@@ -107,6 +122,8 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-inline');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-string-replace');
@@ -114,7 +131,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', distTasks);
-  grunt.registerTask('dist', ['concat', 'cssmin', 'string-replace:default', 'string-replace:dist', 'inline', 'requirejs']);
+  grunt.registerTask('default', buildTasks);
+  grunt.registerTask('dist', distTasks);
 
 };
