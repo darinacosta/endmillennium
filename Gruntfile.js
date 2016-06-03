@@ -48,7 +48,7 @@ module.exports = function(grunt) {
         options: {
           replacements: [
             {
-              pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">\n\n</style>',
+              pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">\n</style>',
               replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../build/built.min.css"/></style>'
             },
             {
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
         options: {
           replacements: [
             {
-              pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">\n\n</style>',
+              pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">\n</style>',
               replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../build/built.min.css"/></style>'
             },
             {
