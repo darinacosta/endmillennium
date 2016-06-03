@@ -66,7 +66,6 @@ function audioCtrl(audioSvc){
       var background = _returnBackgroundTheme();
       tracks[background].audio.play();
 
-
       $("html").on('click', function(event){
 
         //Replay from demo screen
@@ -92,9 +91,23 @@ function audioCtrl(audioSvc){
         }
 
         //Play intro
-        if ($(event.target).is('tw-link') && tracks.intro.played < 1){
+        if ($(event.target).is('[passage-name="The highway"]') && tracks.intro.played < 1){
           tracks.intro.played += 1;
           tracks.intro.audio.play();
+        }
+
+        //Play save
+        if ($(event.target).is('.save:not(.clicked)')) {
+          $(event.target).addClass('clicked');
+          tracks.save.audio.play();
+        }
+
+        //Play load
+        if ($(event.target).is('.load')) {
+          if (endmillennium.saveData){
+            tracks.intro.played += 1;
+            tracks.intro.audio.play();
+          }
         }
 
       });

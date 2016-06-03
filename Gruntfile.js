@@ -1,10 +1,10 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
-  var watchTasks = ['concat', 'cssmin', 'string-replace:default',
+  var watchTasks = ['concat:css', 'cssmin', 'string-replace:default',
                    'string-replace:dev', 'inline', 'requirejs'];
   var buildTasks = watchTasks.concat(['watch']);
-  var distTasks = ['concat', 'cssmin', 'string-replace:default',
+  var distTasks = ['concat:css', 'cssmin', 'string-replace:default',
                    'string-replace:build', 'inline', 'requirejs',
                    'clean', 'copy'];
 
@@ -48,12 +48,24 @@ module.exports = function(grunt) {
         options: {
           replacements: [
             {
-              pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">\n</style>',
-              replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../build/built.min.css"/></style>'
+              pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">',
+              replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../build/built.min.css"/>'
             },
             {
               pattern: '<body>',
-              replacement: '<body>\n\n<div id="audio-preload"></div>'
+              replacement: '<body>\n<div id="audio-preload"></div>\n<script src="../services/globals.js?__inline=true"></script>'
+            },
+            {
+              pattern: 'I can\'t find a save slot named \'"+slotName+"\'!',
+              replacement: 'No saves were detected in the current browser.'
+            },
+            {
+              pattern: 'I tried to save or load the game, but I couldn\'t do it.',
+              replacement: 'Did you save in a different browser or recently empty your browser\'s cache?'
+            },
+            {
+              pattern: 'return saveData?(State.deserialise(saveData)',
+              replacement: 'endmillennium.saveData = saveData; return saveData?(State.deserialise(saveData)'
             }
           ]
         }
@@ -78,8 +90,8 @@ module.exports = function(grunt) {
         options: {
           replacements: [
             {
-              pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">\n</style>',
-              replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../build/built.min.css"/></style>'
+              pattern: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">',
+              replacement: '<style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"><inline src="../build/built.min.css"/>'
             },
             {
               pattern: '</body>',
@@ -111,7 +123,7 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ['**/*.js', '**/*.css'],
+        files: ['**/*.js', '**/*.css', 'twine/twine-output.html'],
         tasks: watchTasks,
         options: {
           spawn: false,

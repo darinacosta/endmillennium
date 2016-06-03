@@ -46,13 +46,9 @@ h1{
   background-color: rgba(0, 0, 0, 0.7);
   background-image: url(assets/images/dark.png), url(assets/images/static.gif);
   text-shadow: -2px 2px rgba(0, 0, 0, 0.63);
-  color: rgb(224, 224, 224);
+  color: white;
   background-repeat: no-repeat, repeat;
   background-size: cover, 100px 100px;
-}
-
-.text-section:hover {
-   color: white;
 }
 
 .text-section tw-link, .text-section .replay{
@@ -100,6 +96,9 @@ tw-link, tw-link.visited {
     position: absolute;
     margin-top: 20px;
     z-index:997;
+    font-family: monospace;
+    color:white;
+    font-size: 10px;
 }
 
 .save {
@@ -112,6 +111,11 @@ tw-link, tw-link.visited {
   background-image: url(assets/images/floppydiskload.png);
   width: 35px;
   height: 35px;
+}
+
+tw-error, tw-error-explanation {
+    font-family: monospace;
+    font-size: 10px;
 }
 
 

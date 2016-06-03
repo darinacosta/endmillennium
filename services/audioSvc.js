@@ -41,6 +41,11 @@ function audioSvc(){
       name: "crackle",
       volume: 0.2,
       loop: true
+    },
+    save: {
+      name: "save",
+      volume: 0.4,
+      loop: false
     }
   };
 
