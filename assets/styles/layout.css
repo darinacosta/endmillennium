@@ -1,0 +1,113 @@
+html{
+  /*background-image: url('http://play.geographyofrobots.com/endmillennium/assets/images/bluegrid.png');*/
+  background-image:url(assets/images/bluegrid.png);
+  background-color:black;
+  /*color: #AD3E3E !important;*/
+  text-align:center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bottom-line{
+ border-bottom: 5px ridge rgba(51, 106, 123, 1);
+}
+
+.choice{
+  text-align:left;
+}
+
+@keyframes blink {
+  to {
+    color: rgba(0, 255, 255, 0.4);
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    color: rgba(0, 255, 255, 0.4);
+  }
+}
+
+h1{
+  text-align:center;
+  font-family: 'bitwiseregular', Impact, Charcoal, sans-serif;
+  color: rgba(44, 78, 86, 0.63);
+  text-shadow: 5px 7px rgba(44, 78, 86, 0);
+  margin: 0px;
+  font-size: 77px;
+}
+
+.text-section{
+  clear:both;
+  padding: 20px;
+  animation: none;
+  -webkit-animation: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-image: url(assets/images/dark.png), url(assets/images/static.gif);
+  text-shadow: -2px 2px rgba(0, 0, 0, 0.63);
+  color: rgb(224, 224, 224);
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 100px 100px;
+}
+
+.text-section:hover {
+   color: white;
+}
+
+.text-section tw-link, .text-section .replay{
+  color: #00FFFF;
+  text-shadow: -2px 2px rgba(44, 78, 86, 0.63);
+  animation: blink 1s steps(10, start) infinite;
+  -webkit-animation: blink 1s steps(10, start) infinite;
+}
+
+.replay{
+  cursor:pointer;
+}
+
+tw-icon {
+  opacity: .3;
+  color: #6EB7D4;
+}
+
+tw-passage h1{
+  color: #00FFFF;
+  text-shadow: 5px 7px rgba(44, 78, 86, 0.63);
+}
+
+tw-passage{
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 12px 16px 35px black;
+  border: 5px ridge rgba(51, 106, 123, 0.7);
+  animation: none;
+  -webkit-animation: none;
+}
+
+tw-story{
+  font-family: 'edit_undo_line_brkregular', "Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
+}
+
+tw-link, tw-link.visited {
+  color: rgba(173, 62, 62, .5);
+}
+
+.text-section tw-link.visited{
+  color:red;
+}
+
+@media screen and (max-width: 650px) /* Mobile */ {
+  h1{
+    font-size:25px;
+  }
+
+  html {
+    background-image: url(assets/images/bluegrid.png)
+  }
+
+  tw-story{
+    width:90%;
+    padding:5px;
+    font-size:20px;
+  }
+}

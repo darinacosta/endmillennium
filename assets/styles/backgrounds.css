@@ -1,0 +1,38 @@
+/*Custom html backgrounds*/
+
+html {
+  background-size:cover;
+  background-color:black;
+  min-height: 100%;
+}
+
+html.earlyeve{
+  background-size:cover;
+  background-image:url(assets/images/earlyeve.png),url(assets/images/bluegrid.png);
+  min-height: 100%;
+}
+
+html.lateeve{
+  background-size:cover;
+  background-image:url(assets/images/earlyeve.png),url(assets/images/bluegrid.png);
+}
+
+html.gasstation{
+  background-size:cover;
+  background-image:url(assets/images/gasstation.png),url(assets/images/bluegrid.png);
+}
+
+html.highwaynight{
+  background-size:cover;
+  background-image:url(assets/images/highwaynight.png),url(assets/images/bluegrid.png);
+}
+
+html.moonlight{
+  background-size:cover;
+  background-image:url(assets/images/moonlight.png),url(assets/images/bluegrid.png);
+}
+
+html.walmart{
+  background-size:cover;
+  background-image:url(assets/images/abandonedmall.png),url(assets/images/bluegrid.png);
+}

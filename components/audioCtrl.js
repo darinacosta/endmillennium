@@ -47,21 +47,10 @@ function audioCtrl(audioSvc){
     }
   }
 
-  function _returnBackgroundTheme(){
-    for (var track in tracks) {
-      if (tracks.hasOwnProperty(track)) {
-        if (tracks[track]['background']){
-          return tracks[track].name;
-        }
-      }
-    }
-  }
-
   function _returnClickTracks(){
     var clickTracks = [];
     for (var track in tracks) {
       if (tracks.hasOwnProperty(track)) {
-        console.log(tracks[track].name.substring(0, 4));
         if (tracks[track].name.substring(0, 5) == "click"){
           clickTracks.push(tracks[track].name);
         }
@@ -111,21 +100,16 @@ function audioCtrl(audioSvc){
       });
 
       //Play crackle
-      $("html").on("mouseover", "div", function() {
-        tracks.crackle.audio.play();
-        $("html").on('click', function(){
-          setTimeout(function(){
-            if ($('div:hover').length === 0) {
-              tracks.crackle.audio.pause();
-            }
-          }, 200);
-        });
-      });
+//      $("html").on("mouseover", "div", function() {
+//        tracks.crackle.audio.play().then(function(){}, function(e){
+//          //prevent promise error from being logged
+//        });
+//      });
 
       //Pause crackle
-      $("html").on("mouseout", "div", function() {
-        crackle.pause();
-      });
+//      $("html").on("mouseout", "div", function() {
+//        tracks.crackle.audio.pause();
+//      });
     });
   }
 
