@@ -30,13 +30,13 @@ module.exports = function(grunt) {
     clean: ['dist'],
     concat: {
       css: {
-        src: ['assets/**/*.css'],
+        src: ['assets/**/*.css', 'components/**/*.css'],
         dest: 'build/built.css',
       }
     },
     cssmin: {
       css: {
-        src: ['assets/**/*.css'],
+        src: ['assets/**/*.css', 'components/**/*.css'],
         dest: 'build/built.min.css'
       }
     },

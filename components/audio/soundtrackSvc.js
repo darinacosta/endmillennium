@@ -1,25 +1,25 @@
-define([], audioSvc);
+define([], soundtrackSvc);
 
-function audioSvc(){
+function soundtrackSvc(){
 
-  var audioSvc = {};
+  var soundtrackSvc = {};
 
-  audioSvc.tracks = {
+  soundtrackSvc.tracks = {
     click1: {
       name: "click1",
-      volume: 0.2,
+      volume: 0.3,
     },
     click2: {
       name: "click2",
-      volume: 0.2,
+      volume: 0.3,
     },
     click3: {
       name: "click3",
-      volume: 0.2,
+      volume: 0.3,
     },
     unclick1: {
       name: "unclick1",
-      volume: 0.4,
+      volume: 0.5,
     },
     getitem: {
       name: "getitem",
@@ -27,13 +27,13 @@ function audioSvc(){
     },
     gulfnight: {
       name: "gulfnight",
-      volume: 0.9,
+      volume: 1,
       loop: true,
       background: true
     },
     intro: {
       name: "intro",
-      volume: 0.4,
+      volume: 0.6,
       played: 0,
       loop: false
     },
@@ -44,11 +44,11 @@ function audioSvc(){
     },
     save: {
       name: "save",
-      volume: 0.4,
+      volume: 0.5,
       loop: false
     }
   };
 
-  return audioSvc;
+  return soundtrackSvc;
 
 };

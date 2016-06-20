@@ -1,8 +1,6 @@
 html{
-  /*background-image: url('http://play.geographyofrobots.com/endmillennium/assets/images/bluegrid.png');*/
   background-image:url(assets/images/bluegrid.png);
   background-color:black;
-  /*color: #AD3E3E !important;*/
   text-align:center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -111,6 +109,17 @@ tw-link, tw-link.visited {
   background-image: url(assets/images/floppydiskload.png);
   width: 35px;
   height: 35px;
+}
+
+#loadscreen{
+  font-size:50px;
+  position:absolute;
+  z-index:9999;
+  color:white;
+  width:100%;
+  text-align:center;
+  padding-top:100px;
+  font-family: monospace;
 }
 
 tw-error, tw-error-explanation {
