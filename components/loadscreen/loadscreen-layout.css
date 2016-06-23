@@ -1,0 +1,10 @@
+#loadscreen{
+  font-size:50px;
+  position:absolute;
+  z-index:9999;
+  color:white;
+  width:100%;
+  text-align:center;
+  padding-top:100px;
+  font-family: monospace;
+}

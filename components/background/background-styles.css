@@ -1,0 +1,15 @@
+html{
+  background-image:url(assets/images/bluegrid.png);
+  background-color:black;
+  text-align:center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media screen and (max-width: 650px) /* Mobile */ {
+  html {
+    background-image: url(assets/images/bluegrid.png)
+  }
+}

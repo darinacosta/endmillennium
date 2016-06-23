@@ -1,0 +1,23 @@
+.chapter{
+  text-align:center;
+  font-size:20px;
+  visibility:hidden;
+  position:absolute;
+  top:115px;
+  width:100%;
+  color:white;
+}
+
+.chapter-header{
+  font-size:30px;
+  font-family: bitwiseregular,Impact,Charcoal,sans-serif;
+}
+
+.chapter-title{
+  font-size:25px;
+  font-family: edit_undo_line_brkregular,"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace;
+}
+
+.inner-chapter{
+  margin:0 auto;
+}

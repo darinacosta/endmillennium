@@ -1,15 +1,5 @@
-html{
-  background-image:url(assets/images/bluegrid.png);
-  background-color:black;
-  text-align:center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 .bottom-line{
- border-bottom: 5px ridge rgba(51, 106, 123, 1);
+ border-bottom: 3px ridge rgba(51, 106, 123, 1);
 }
 
 .choice{
@@ -41,8 +31,8 @@ h1{
   padding: 20px;
   animation: none;
   -webkit-animation: none;
-  background-color: rgba(0, 0, 0, 0.7);
-  background-image: url(assets/images/dark.png), url(assets/images/static.gif);
+  /*background-color: rgba(0, 0, 0, 0.7);*/
+  background-image: url(assets/images/dark.png), url(assets/images/static2.gif);
   text-shadow: -2px 2px rgba(0, 0, 0, 0.63);
   color: white;
   background-repeat: no-repeat, repeat;
@@ -73,7 +63,7 @@ tw-passage h1{
 tw-passage{
   background-color: rgba(0, 0, 0, 0.6);
   box-shadow: 12px 16px 35px black;
-  border: 5px ridge rgba(51, 106, 123, 0.7);
+  border: 3px ridge rgba(51, 106, 123, 0.7);
   animation: none;
   -webkit-animation: none;
 }
@@ -111,30 +101,14 @@ tw-link, tw-link.visited {
   height: 35px;
 }
 
-#loadscreen{
-  font-size:50px;
-  position:absolute;
-  z-index:9999;
-  color:white;
-  width:100%;
-  text-align:center;
-  padding-top:100px;
-  font-family: monospace;
-}
-
 tw-error, tw-error-explanation {
     font-family: monospace;
     font-size: 10px;
 }
 
-
 @media screen and (max-width: 650px) /* Mobile */ {
   h1{
     font-size:25px;
-  }
-
-  html {
-    background-image: url(assets/images/bluegrid.png)
   }
 
   tw-story{
