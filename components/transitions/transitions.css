@@ -6,6 +6,10 @@
   top:115px;
   width:100%;
   color:white;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-right:none;
+  border-left:none;
 }
 
 .chapter-header{
