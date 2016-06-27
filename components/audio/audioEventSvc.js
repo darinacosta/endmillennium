@@ -1,9 +1,11 @@
 define(['components/audio/audioHelperSvc',
-        'components/audio/soundtrackSvc'], audioEventSvc);
+        'components/audio/soundtrackSvc',
+        'components/transitions/transitionSvc'], audioEventSvc);
 
-function audioEventSvc(audioHelperSvc, soundtrackSvc) {
+function audioEventSvc(audioHelperSvc, soundtrackSvc, transitionSvc) {
   var audioEventSvc = {};
   var tracks = soundtrackSvc.tracks;
+  var chapters = transitionSvc.chapters;
 
   audioEventSvc.applyAudioHtmlTriggers = function(){
     $(document).ready(function(){
@@ -19,8 +21,15 @@ function audioEventSvc(audioHelperSvc, soundtrackSvc) {
           location.reload();
         }
 
+        for (chapter in chapters){
+          if ($(event.target).is('[passage-name="' + chapters[chapter].passage_name + '"]') && !chapters[chapter].clicked){
+            tracks.intro.audio.play();
+            return;
+          }
+        }
+
         //Play click
-        if ($(event.target).is('tw-link:not(.visited)') && tracks.intro.played === 1){
+        if ($(event.target).is('tw-link:not(.visited)')){
           var clickTracks = audioHelperSvc.returnClickTracks();
           var i = Math.floor(Math.random() * clickTracks.length);
           var clickTrack = clickTracks[i];
@@ -34,12 +43,6 @@ function audioEventSvc(audioHelperSvc, soundtrackSvc) {
 
         if ($(event.target).is('.undo')){
           tracks.unclick1.audio.play();
-        }
-
-        //Play intro
-        if ($(event.target).is('[passage-name="The highway"]') && tracks.intro.played < 1){
-          tracks.intro.played += 1;
-          tracks.intro.audio.play();
         }
 
         //Play save
