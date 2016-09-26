@@ -5,6 +5,7 @@ require(['components/audio/audioCtrl',
 ], init);
 
 function init(audioCtrl, textSectionCtrl, transitionCtrl, menuCtrl){
+  $( 'body, tw-story' ).wrapAll( "<div id='game'></div>" )
   $('body').append('<div id="loadscreen">_loading</div>');
   audioCtrl.init();
   textSectionCtrl.init();
